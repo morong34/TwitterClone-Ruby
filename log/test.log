@@ -1,0 +1,27 @@
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2023-03-04 11:16:28 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 321)
+  Rendered layout layouts/application.html.erb (Duration: 1120.8ms | Allocations: 101432)
+Completed 200 OK in 1128ms (Views: 1123.4ms | ActiveRecord: 0.0ms | Allocations: 104675)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2023-03-04 11:17:17 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 321)
+  Rendered layout layouts/application.html.erb (Duration: 349.2ms | Allocations: 25782)
+Completed 200 OK in 355ms (Views: 351.8ms | ActiveRecord: 0.0ms | Allocations: 29026)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2023-03-04 11:17:44 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 321)
+  Rendered layout layouts/application.html.erb (Duration: 351.6ms | Allocations: 26722)
+Completed 200 OK in 356ms (Views: 353.0ms | ActiveRecord: 0.0ms | Allocations: 29967)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
