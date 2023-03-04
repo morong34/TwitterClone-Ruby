@@ -645,3 +645,549 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 4ms (Views: 3.5ms | Allocations: 3896)
 
 
+Started GET "/users/sign_in" for ::1 at 2023-03-04 14:03:13 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1275)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3599)
+Completed 200 OK in 13ms (Views: 9.9ms | Allocations: 4192)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-03-04 14:03:14 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 1ms (Allocations: 513)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 133)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1357)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3772)
+Completed 200 OK in 5ms (Views: 4.3ms | Allocations: 4348)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-03-04 14:03:16 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1024)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3356)
+Completed 200 OK in 6ms (Views: 5.2ms | Allocations: 3890)
+
+
+Started POST "/users" for ::1 at 2023-03-04 14:04:19 +0200
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "failed_attempts", "unlock_token", "locked_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["failed_attempts", 0], ["unlock_token", "[FILTERED]"], ["locked_at", nil], ["created_at", "2023-03-04 12:04:20.020759"], ["updated_at", "2023-03-04 12:04:20.020759"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 720ms (ActiveRecord: 17.5ms | Allocations: 19120)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:04:20 +0200
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1544)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 4024)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.4ms | Allocations: 4367)
+
+
+  [1m[36mUser Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/" for ::1 at 2023-03-04 14:21:21 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 19.2ms | Allocations: 9272)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 9357)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 6.9ms | Allocations: 10194)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `delete' for #<ActionView::Base:0x0000000000e268>
+
+  '.freeze;@output_buffer.append=( link_to "Log Out", destroy_user_session_path, data: { method: delete}, class: "btn btb-destroy");@output_buffer.safe_append='
+                                                                                                 ^^^^^^):
+    1: <% if user_signed_in? %>
+    2:   <p>Esti logat sefu</p>
+    3:   <%= link_to "Log Out", destroy_user_session_path, data: { method: delete}, class: "btn btb-destroy"%>
+    4: <% else %>
+    5:   <p>Nu esti logat</p>
+    6:   <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2023-03-04 14:21:39 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1578)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4306)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.4ms | Allocations: 5152)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:21:47 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1580)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4281)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.6ms | Allocations: 5129)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:21:48 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1082)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 3414)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.4ms | Allocations: 3674)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:21:56 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 1565)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 4266)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.7ms | Allocations: 5096)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:22:38 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1588)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 4330)
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.4ms | Allocations: 5179)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-03-04 14:22:39 +0200
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 16ms (ActiveRecord: 0.3ms | Allocations: 7806)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:22:40 +0200
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 411)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2871)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 3206)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-04 14:22:56 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 544)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2298)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4778)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 5913)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-03-04 14:22:59 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", "2023-03-04 12:22:59.627477"], ["updated_at", "2023-03-04 12:22:59.627660"], ["id", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 280ms (ActiveRecord: 3.6ms | Allocations: 7024)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:22:59 +0200
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1139)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 3578)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 3845)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-03-04 14:23:02 +0200
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", nil], ["updated_at", "2023-03-04 12:23:02.439481"], ["id", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 12ms (ActiveRecord: 2.1ms | Allocations: 4916)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:23:02 +0200
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 324)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 2660)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 2907)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6248947738392157890)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTweets (20230304122959)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.1ms)[0m  [1m[35mCREATE TABLE "tweets" ("id" bigserial primary key, "user_id" bigint NOT NULL, "body" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_003928b7f5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_tweets_on_user_id" ON "tweets" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230304122959"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6248947738392157890)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (43.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "twitter_clone_test"[0m
+  [1m[35m (123.7ms)[0m  [1m[35mCREATE DATABASE "twitter_clone_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tweets" CASCADE[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "tweets" ("id" bigserial primary key, "user_id" bigint NOT NULL, "body" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_tweets_on_user_id" ON "tweets" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp(6), "last_sign_in_at" timestamp(6), "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp(6), "confirmation_sent_at" timestamp(6), "unconfirmed_email" character varying, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" character varying, "locked_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_unlock_token" ON "users" ("unlock_token")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "tweets" ADD CONSTRAINT "fk_rails_003928b7f5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230304122959)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230304105727);
+
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-04 12:30:47.737365"], ["updated_at", "2023-03-04 12:30:47.737365"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2023-03-04 12:30:47.744095"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "21848d31e63ea572d1dd0d1027f4cf1eae0dccfc"], ["created_at", "2023-03-04 12:30:47.747483"], ["updated_at", "2023-03-04 12:30:47.747483"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/sign_in" for ::1 at 2023-03-04 14:36:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 161)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1541)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 4084)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 9813)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-04 14:54:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 562)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 2360)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 5078)
+Completed 200 OK in 31ms (Views: 5.6ms | ActiveRecord: 9.8ms | Allocations: 14076)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-03-04 14:54:11 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 279ms (ActiveRecord: 2.0ms | Allocations: 3349)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:54:11 +0200
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 6062)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 8582)
+Completed 200 OK in 20ms (Views: 9.4ms | ActiveRecord: 10.3ms | Allocations: 9400)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:54:50 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1282)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1371)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2235)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if user_signed_in? %>
+  <p>Esti logat sefu</p>
+  <%= link_to "Log Out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger"%>
+
+  <%= form_with model: Tweet.new, url: tweets_path, local: true do |f| %>
+    <%=  f.text_field :body, class: "form-control" %>
+    <%= f.submit, class: "btn btn-primary" %>
+  <% end %>
+<% else %>
+  <p>Nu esti logat</p>
+  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary btn-lg" %>
+<% end %>
+
+):
+1:    <% if user_signed_in? %>
+2:      <p>Esti logat sefu</p>
+3:      <%= link_to "Log Out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger"%>
+4:    
+5:      <%= form_with model: Tweet.new, url: tweets_path, local: true do |f| %>
+6:        <%=  f.text_field :body, class: "form-control" %>
+7:        <%= f.submit, class: "btn btn-primary" %>
+8:      <% end %>
+9:    <% else %>
+10:      <p>Nu esti logat</p>
+11:      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+12:      <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary btn-lg" %>
+13:    <% end %>
+  
+app/views/home/index.html.erb:7: syntax error, unexpected label, expecting '='
+app/views/home/index.html.erb:7: syntax error, unexpected label, expecting '='
+app/views/home/index.html.erb:7: syntax error, unexpected label, expecting '='
+app/views/home/index.html.erb:7: syntax error, unexpected label, expecting '='
+app/views/home/index.html.erb:7: syntax error, unexpected label, expecting '='
+app/views/home/index.html.erb:7: syntax error, unexpected label, expecting '='
+Started GET "/" for ::1 at 2023-03-04 14:56:08 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1270)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1359)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2181)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if user_signed_in? %>
+  <p>Esti logat sefu</p>
+  <%= link_to "Log Out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger"%>
+
+  <%= form_with model: Tweet.new, url: tweets_path, local: true do |f| %>
+    <%=  f.text_field :body, class: "form-control" %>
+    <%= f.submit, class="btn btn-primary" %>
+  <% end %>
+<% else %>
+  <p>Nu esti logat</p>
+  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary btn-lg" %>
+<% end %>
+
+):
+1:    <% if user_signed_in? %>
+2:      <p>Esti logat sefu</p>
+3:      <%= link_to "Log Out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger"%>
+4:    
+5:      <%= form_with model: Tweet.new, url: tweets_path, local: true do |f| %>
+6:        <%=  f.text_field :body, class: "form-control" %>
+7:        <%= f.submit, class="btn btn-primary" %>
+8:      <% end %>
+9:    <% else %>
+10:      <p>Nu esti logat</p>
+11:      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+12:      <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary btn-lg" %>
+13:    <% end %>
+  
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+Started GET "/" for ::1 at 2023-03-04 14:56:10 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1227)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1307)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1543)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if user_signed_in? %>
+  <p>Esti logat sefu</p>
+  <%= link_to "Log Out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger"%>
+
+  <%= form_with model: Tweet.new, url: tweets_path, local: true do |f| %>
+    <%=  f.text_field :body, class: "form-control" %>
+    <%= f.submit, class="btn btn-primary" %>
+  <% end %>
+<% else %>
+  <p>Nu esti logat</p>
+  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary btn-lg" %>
+<% end %>
+
+):
+1:    <% if user_signed_in? %>
+2:      <p>Esti logat sefu</p>
+3:      <%= link_to "Log Out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger"%>
+4:    
+5:      <%= form_with model: Tweet.new, url: tweets_path, local: true do |f| %>
+6:        <%=  f.text_field :body, class: "form-control" %>
+7:        <%= f.submit, class="btn btn-primary" %>
+8:      <% end %>
+9:    <% else %>
+10:      <p>Nu esti logat</p>
+11:      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+12:      <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary btn-lg" %>
+13:    <% end %>
+  
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+app/views/home/index.html.erb:7: syntax error, unexpected '='
+Started GET "/" for ::1 at 2023-03-04 14:56:20 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2142)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 4869)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.4ms | Allocations: 5693)
+
+
+Started GET "/" for ::1 at 2023-03-04 14:56:39 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2141)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4826)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.4ms | Allocations: 5674)
+
+
+Started GET "/" for ::1 at 2023-03-04 15:02:33 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  [1m[36mTweet Load (9.9ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/home/index.html.erb:11
+  Rendered home/index.html.erb within layouts/application (Duration: 36.4ms | Allocations: 13039)
+  Rendered layout layouts/application.html.erb (Duration: 38.1ms | Allocations: 15757)
+Completed 200 OK in 39ms (Views: 39.0ms | ActiveRecord: 19.2ms | Allocations: 16722)
+
+
+Started GET "/" for ::1 at 2023-03-04 15:02:43 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/home/index.html.erb:11
+  Rendered home/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2896)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 5581)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.5ms | Allocations: 6457)
+
+
+Started GET "/" for ::1 at 2023-03-04 15:03:14 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/home/index.html.erb:11
+  Rendered home/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2922)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 5607)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.5ms | Allocations: 6455)
+
+
+Started POST "/tweets" for ::1 at 2023-03-04 15:03:22 +0200
+Processing by TweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet"=>{"body"=>"primul post"}, "commit"=>"Create Tweet"}
+No template found for TweetsController#create, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.0ms | Allocations: 2655)
+
+
+Started GET "/" for ::1 at 2023-03-04 15:04:30 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  [1m[36mTweet Load (3.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/home/index.html.erb:11
+  Rendered home/index.html.erb within layouts/application (Duration: 35.3ms | Allocations: 10624)
+  Rendered layout layouts/application.html.erb (Duration: 37.2ms | Allocations: 13168)
+Completed 200 OK in 38ms (Views: 14.9ms | ActiveRecord: 22.7ms | Allocations: 13783)
+
+
+Started POST "/tweets" for ::1 at 2023-03-04 15:04:35 +0200
+Processing by TweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet"=>{"body"=>"primult post"}, "commit"=>"Create Tweet"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `create'
+  [1m[36mTweet Create (3.9ms)[0m  [1m[32mINSERT INTO "tweets" ("user_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["body", "primult post"], ["created_at", "2023-03-04 13:04:35.456708"], ["updated_at", "2023-03-04 13:04:35.456708"]]
+  ↳ app/controllers/tweets_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 5.8ms | Allocations: 4042)
+
+
+Started GET "/" for ::1 at 2023-03-04 15:04:35 +0200
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  [1m[36mTweet Load (1.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/home/index.html.erb:11
+  Rendered home/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2305)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4728)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 2.4ms | Allocations: 5018)
+
+
