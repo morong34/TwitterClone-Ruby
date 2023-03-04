@@ -1,1 +1,7 @@
-<p>Hello world</p>
+<% if user_signed_in? %>
+  <p>Esti logat sefu</p>
+<% else %>
+  <p>Nu esti logat</p>
+  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary btn-lg" %>
+<% end %>
