@@ -1191,3 +1191,209 @@ Processing by HomeController#index as TURBO_STREAM
 Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 2.4ms | Allocations: 5018)
 
 
+Started GET "/users/sign_up" for ::1 at 2023-03-06 20:14:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 245)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 595)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 112.5ms | Allocations: 282165)
+  Rendered layout layouts/application.html.erb (Duration: 431.7ms | Allocations: 385793)
+Completed 200 OK in 454ms (Views: 437.8ms | ActiveRecord: 4.5ms | Allocations: 404894)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-06 20:14:31 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 246)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2460)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4959)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 6718)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-03-06 20:14:32 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 303 See Other in 312ms (ActiveRecord: 3.7ms | Allocations: 7218)
+
+
+Started GET "/dashboard" for ::1 at 2023-03-06 20:14:32 +0200
+Processing by DashboardController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.html.erb:1
+  [1m[36mTweet Load (3.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/dashboard/index.html.erb:11
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 21.3ms | Allocations: 7133)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 9674)
+Completed 200 OK in 31ms (Views: 21.0ms | ActiveRecord: 6.1ms | Allocations: 10516)
+
+
+Started GET "/dashboard" for ::1 at 2023-03-06 20:15:44 +0200
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/dashboard/index.html.erb:11
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 3947)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 6487)
+Completed 200 OK in 22ms (Views: 5.1ms | ActiveRecord: 11.4ms | Allocations: 14599)
+
+
+Started GET "/dashboard" for ::1 at 2023-03-06 20:15:47 +0200
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/dashboard/index.html.erb:11
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1215)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3552)
+Completed 200 OK in 10ms (Views: 4.9ms | ActiveRecord: 0.9ms | Allocations: 5249)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-06 20:15:48 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms | Allocations: 2007)
+
+
+Started GET "/dashboard" for ::1 at 2023-03-06 20:15:48 +0200
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/dashboard/index.html.erb:11
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1277)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3713)
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.5ms | Allocations: 5350)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-03-06 20:15:49 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1960)
+
+
+Started GET "/dashboard" for ::1 at 2023-03-06 20:15:49 +0200
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/dashboard/index.html.erb:11
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1275)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3712)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 5337)
+
+
+Started GET "/" for ::1 at 2023-03-06 20:15:55 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 302)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 3087)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 3843)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-06 20:15:56 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 1716)
+
+
+Started GET "/dashboard" for ::1 at 2023-03-06 20:15:56 +0200
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/dashboard/index.html.erb:11
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1250)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3586)
+Completed 200 OK in 11ms (Views: 6.8ms | ActiveRecord: 1.0ms | Allocations: 5197)
+
+
+Started GET "/home" for ::1 at 2023-03-06 20:16:02 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+Started GET "/dashboard" for ::1 at 2023-03-06 20:16:12 +0200
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  ↳ app/views/dashboard/index.html.erb:11
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1312)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3748)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.6ms | Allocations: 5554)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-03-06 20:16:20 +0200
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 22ms (ActiveRecord: 0.4ms | Allocations: 5631)
+
+
+Started GET "/" for ::1 at 2023-03-06 20:16:20 +0200
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 2803)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 3092)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-06 20:16:21 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 160)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1528)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4025)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4974)
+
+
+Started GET "/dashboard" for ::1 at 2023-03-06 20:17:04 +0200
+Processing by DashboardController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 341)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-06 20:17:04 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1275)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 3603)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 4265)
+
+
+Started GET "/dashboard" for ::1 at 2023-03-06 20:17:09 +0200
+Processing by DashboardController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 280)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-06 20:17:09 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1275)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 3603)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 4225)

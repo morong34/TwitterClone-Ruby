@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 class TweetsController < ApplicationController
+  before_action :authenticate_user!
   def create
     tweet = Tweet.new(tweet_params.merge(user: current_user))
 
-    if tweet.save
-      redirect_to root_path
-    end
+    return unless tweet.save
+
+    redirect_to dashboard_path
   end
 
   private
