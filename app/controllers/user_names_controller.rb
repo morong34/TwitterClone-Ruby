@@ -38,8 +38,17 @@ class UserNamesController < ApplicationController
 
   # PATCH/PUT /user_names/1 or /user_names/1.json
   def update
-    current_user.update(user_name_params)
-    redirect_to dashboard_path
+    if user_name_params[:username].present? && current_user.update(user_name_params)
+      flash[:notice] = 'Username successful updated'
+      redirect_to dashboard_path
+    else
+      flash[:alert] = if user_name_params[:username].blank?
+                        'Please insert a username'
+                      else
+                        current_user.errors.full_messages.join(', ')
+                      end
+      redirect_to new_user_name_path
+    end
   end
 
   # DELETE /user_names/1 or /user_names/1.json
@@ -55,9 +64,9 @@ class UserNamesController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_user_name
-    @user_name = UserName.find(params[:id])
-  end
+  # def set_user_name
+  #   @user_name = UserName.find(params[:id])
+  # end
 
   # Only allow a list of trusted parameters through.
   def user_name_params

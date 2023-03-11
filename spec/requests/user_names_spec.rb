@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe '/user_names', type: :request do
@@ -12,15 +14,29 @@ RSpec.describe '/user_names', type: :request do
   end
 
   describe 'PUT update' do
-    it 'updated the username' do
-      expect do
-        put user_name_path(user), params: {
-          user: {
-            username: 'foobar'
+    context 'valid params' do
+      it 'updated the username' do
+        expect do
+          put user_name_path(user), params: {
+            user: {
+              username: 'foobar'
+            }
           }
-        }
-      end.to change { user.reload.username }.from(nil).to('foobar')
-      expect(response).to redirect_to(dashboard_path)
+        end.to change { user.reload.username }.from(nil).to('foobar')
+        expect(response).to redirect_to(dashboard_path)
+      end
+    end
+    context 'invalid params' do
+      it 'updated the username' do
+        expect do
+          put user_name_path(user), params: {
+            user: {
+              username: ''
+            }
+          }
+        end.not_to change { user.reload.username }
+        expect(response).to redirect_to(new_user_name_path)
+      end
     end
   end
 end
